@@ -8,6 +8,7 @@ use Tests\DuskTestCase;
 
 class TimeoutTest extends DuskTestCase
 {
+
   /**
    * Test if the page has an accurate title
    */
@@ -18,4 +19,16 @@ class TimeoutTest extends DuskTestCase
               ->assertTitle('Testing Dusk Timeouts');
     });
   }
+
+  /**
+   * Test if the page has a header
+   */
+  public function testDuskTimeoutPageHasHeader(): void
+  {
+    $this->browse(function (Browser $browser) {
+      $browser->visit('/dusk_timeout_test')
+              ->assertPresent('header');
+    });
+  }
+
 }
